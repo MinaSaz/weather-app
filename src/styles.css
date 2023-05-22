@@ -4,8 +4,11 @@ body {
 
 .weather-app {
   width: 70%;
-  border: 3px solid #ffe302;
+
   margin: 100px auto;
+}
+.main-content {
+  border: 3px solid #ffe302;
   padding: 0;
 }
 .main {
@@ -70,4 +73,12 @@ body {
 .unit {
   text-decoration: none;
   font-size: smaller;
+}
+
+.source {
+  margin: 5px;
+}
+
+.source a {
+  text-decoration: none;
 }
