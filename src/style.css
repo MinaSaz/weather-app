@@ -1,0 +1,73 @@
+body {
+  font-family: "Amaranth", sans-serif;
+}
+
+.weather-app {
+  width: 70%;
+  border: 3px solid #ffe302;
+  margin: 100px auto;
+  padding: 0;
+}
+.main {
+  border-bottom: 3px solid #ffe302;
+  position: relative;
+}
+.main img {
+  width: 100%;
+  height: auto;
+  padding: 0;
+  opacity: 0.7;
+}
+.content {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  padding: 30px;
+}
+.search form {
+  float: right;
+  vertical-align: middle;
+}
+.forcast {
+  background-color: #96a0f5;
+  margin: 0;
+}
+.forcast img {
+  width: 100%;
+}
+.current {
+  padding: 30px;
+  border-right: 3px solid #ffe302;
+}
+.current img {
+  max-width: 120px;
+  margin: auto;
+  display: block;
+}
+.current p {
+  margin-bottom: 0;
+  font-size: 20px;
+}
+.future {
+  padding: 30px;
+}
+.future-item span {
+  text-align: center;
+  /*display: block;*/
+}
+.future-item .day {
+  display: block;
+}
+.future-item img {
+  max-width: 80px;
+  display: block;
+  margin: auto;
+}
+.future-item p {
+  text-align: center;
+}
+
+.unit {
+  text-decoration: none;
+  font-size: smaller;
+}
