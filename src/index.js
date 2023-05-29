@@ -76,12 +76,9 @@ function callWatherApi(apiUrl) {
     let conditionImg = document.querySelector("#currentConditionImg");
     conditionImg.setAttribute(
       "src",
-      `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+      `img/${response.data.weather[0].icon.substr(0, 2)}.png`
     );
-    conditionImg.setAttribute(
-      "alt",
-      `https://openweathermap.org/img/wn/${response.data.weather[0].description}@2x.png`
-    );
+    conditionImg.setAttribute("alt", response.data.weather[0].description);
     let mainElement = document.querySelector(".main-content");
     mainElement.style.backgroundImage = `linear-gradient(
       rgba(255, 255, 255, 0.5),
