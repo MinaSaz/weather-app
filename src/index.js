@@ -1,13 +1,13 @@
 //show current date and time:
 let apiKey = "8cac06f7ab6c10287cd06a316ff84a57";
 let week = [
+  "Sunday",
   "Monday",
   "Tuesday",
   "Wednesday",
   "Thursday",
   "Friday",
   "Saturday",
-  "Sunday",
 ];
 let month = [
   "January",
@@ -114,8 +114,8 @@ function searchcurrentWeather(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(manageLocation);
 }
-let currentRequest = document.querySelector("#current");
-currentRequest.addEventListener("click", searchcurrentWeather);
+//let currentRequest = document.querySelector("#current");
+//currentRequest.addEventListener("click", searchcurrentWeather);
 
 //at first load, get the current location and display it's weather---------------------------------------
 navigator.geolocation.getCurrentPosition(manageLocation);
