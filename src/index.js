@@ -61,7 +61,6 @@ fahrenheitUnit.addEventListener("click", fahrenheitClicked);
 //function to get the weather data from api and update the document from response----------------
 function callWatherApi(apiUrl) {
   axios.get(apiUrl).then(function (response) {
-    console.log(response);
     let currentWeather = document.querySelector(".current-weather span");
     currentWeather.innerHTML = Math.round(response.data.main.temp);
 
@@ -83,7 +82,11 @@ function callWatherApi(apiUrl) {
       "alt",
       `https://openweathermap.org/img/wn/${response.data.weather[0].description}@2x.png`
     );
-
+    let mainElement = document.querySelector(".main-content");
+    mainElement.style.backgroundImage = `linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),url(img/${response.data.weather[0].icon.substr(0, 2)}-big.jpg)`;
     let weatherDate = new Date(response.data.dt * 1000);
     let dateElement = document.querySelector("#time-text");
     dateElement.innerHTML = `${
