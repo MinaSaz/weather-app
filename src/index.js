@@ -24,14 +24,6 @@ let month = [
   "December",
 ];
 
-let now = new Date();
-let dateElement = document.querySelector("#time-text");
-dateElement.innerHTML = `${
-  week[now.getDay()]
-} ${now.getHours()}:${now.getMinutes()}, ${
-  month[now.getMonth()]
-} ${now.getDate()}, ${now.getFullYear()}`;
-
 //conversion between celsius and fahrenheit------------------------------------------------------------------
 
 let celsiusUnit = document.querySelector("#celsius");
@@ -72,19 +64,33 @@ function callWatherApi(apiUrl) {
     console.log(response);
     let currentWeather = document.querySelector(".current-weather span");
     currentWeather.innerHTML = Math.round(response.data.main.temp);
+
     let city = document.querySelector("#city");
     city.innerHTML = response.data.name;
+
     let humidity = document.querySelector("#humidity");
     humidity.innerHTML = response.data.main.humidity;
+
     let wind = document.querySelector("#wind");
     wind.innerHTML = Math.round(response.data.wind.speed);
-    let weatherDate = new Date(response.data.dt);
+
+    let conditionImg = document.querySelector("#currentConditionImg");
+    conditionImg.setAttribute(
+      "src",
+      `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
+    conditionImg.setAttribute(
+      "alt",
+      `https://openweathermap.org/img/wn/${response.data.weather[0].description}@2x.png`
+    );
+
+    let weatherDate = new Date(response.data.dt * 1000);
     let dateElement = document.querySelector("#time-text");
     dateElement.innerHTML = `${
       week[weatherDate.getDay()]
     } ${weatherDate.getHours()}:${weatherDate.getMinutes()}, ${
       month[weatherDate.getMonth()]
-    } ${weatherDate.getDate()}, ${weatherDate.getFullYear()}`;
+    } ${weatherDate.getDate()}`;
   });
 }
 //Search Engine fetch real weather data by calling weather api by city name-------------------------
