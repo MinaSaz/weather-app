@@ -67,6 +67,9 @@ function callWatherApi(apiUrl) {
     let city = document.querySelector("#city");
     city.innerHTML = response.data.name;
 
+    let weatherdescription = document.querySelector("#weatherdescription");
+    weatherdescription.innerHTML = response.data.weather[0].description;
+
     let humidity = document.querySelector("#humidity");
     humidity.innerHTML = response.data.main.humidity;
 
