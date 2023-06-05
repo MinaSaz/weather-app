@@ -28,13 +28,13 @@ body {
   float: right;
   vertical-align: middle;
 }
-.forcast {
+.details {
   margin: 0;
   position: absolute;
   bottom: 0;
   width: 100%;
 }
-.forcast img {
+.details img {
   width: 100%;
 }
 .current {
@@ -51,24 +51,24 @@ body {
   margin-bottom: 0;
   font-size: 20px;
 }
-.future {
+.forcast {
   padding: 30px;
   background-color: rgba(255, 255, 255, 0.3);
 }
-.future-item span {
+.forcast-item span {
   text-align: center;
   /*display: block;*/
 }
-.future-item .day {
+.forcast-item .day {
   display: block;
 }
-.future-item img {
+.forcast-item img {
   max-width: 80px;
   display: block;
   margin: auto;
   opacity: 1;
 }
-.future-item p {
+.forcast-item p {
   text-align: center;
 }
 

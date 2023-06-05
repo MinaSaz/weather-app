@@ -9,6 +9,7 @@ let week = [
   "Friday",
   "Saturday",
 ];
+let weekShort = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 let month = [
   "January",
   "February",
@@ -25,7 +26,6 @@ let month = [
 ];
 
 //conversion between celsius and fahrenheit------------------------------------------------------------------
-
 let celsiusUnit = document.querySelector("#celsius");
 let fahrenheitUnit = document.querySelector("#fahrenheit");
 let unit = "celsius";
@@ -58,9 +58,13 @@ function fahrenheitClicked(event) {
 }
 celsiusUnit.addEventListener("click", celsiusClicked);
 fahrenheitUnit.addEventListener("click", fahrenheitClicked);
+//------------------------------------------------------------------------------------------------------------
+
 //function to get the weather data from api and update the document from response----------------
 function callWatherApi(apiUrl) {
   axios.get(apiUrl).then(function (response) {
+    console.log(response);
+
     let currentWeather = document.querySelector(".current-weather span");
     currentWeather.innerHTML = Math.round(response.data.main.temp);
 
@@ -96,6 +100,7 @@ function callWatherApi(apiUrl) {
     } ${weatherDate.getDate()}`;
   });
 }
+
 //Search Engine fetch real weather data by calling weather api by city name-------------------------
 function searchFormFunction(event) {
   event.preventDefault();
