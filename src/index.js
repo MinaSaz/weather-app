@@ -60,10 +60,34 @@ celsiusUnit.addEventListener("click", celsiusClicked);
 fahrenheitUnit.addEventListener("click", fahrenheitClicked);
 //------------------------------------------------------------------------------------------------------------
 
+//format timestamp into weeek day----------------------------------------------------------------------------
+function formatDay(timeStamp) {
+  let date = new Date(timeStamp * 1000);
+  return weekShort[date.getDay()];
+}
 //function to get the forcast data from api and update the document from response-----------------------------
 function callForcastApi(coordinates) {
   let apiKey = "bb0df6985c2eab6a171d64a6bacbb4e1";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude=current,minutely,hourly,alerts&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(function (response) {
+    let forcastHTML = '<div class="row justify-content-around">';
+    response.data.daily.forEach(function (day, index) {
+      if (0 < index && index < 7) {
+        forcastHTML += `
+              <div class="col-6 col-sm-2 forcast-item">
+                <span class="day"> ${formatDay(day.dt)} </span>
+                <img src="img/${day.weather[0].icon.substr(0, 2)}.png" alt="" />
+                <p>
+                  <span class="degree max">${Math.round(day.temp.max)}</span>°
+                  <span class="degree min">${Math.round(day.temp.min)}</span>°
+                </p>
+              </div>
+        `;
+      }
+    });
+    forcastHTML += "</div>";
+    document.querySelector(".forcast").innerHTML = forcastHTML;
+  });
 }
 
 //function to get the weather data from api and update the document from response----------------
