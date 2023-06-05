@@ -93,8 +93,6 @@ function callForcastApi(coordinates) {
 //function to get the weather data from api and update the document from response----------------
 function callWatherApi(apiUrl) {
   axios.get(apiUrl).then(function (response) {
-    console.log(response);
-
     let currentWeather = document.querySelector(".current-weather span");
     currentWeather.innerHTML = Math.round(response.data.main.temp);
 
