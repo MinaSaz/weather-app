@@ -60,6 +60,12 @@ celsiusUnit.addEventListener("click", celsiusClicked);
 fahrenheitUnit.addEventListener("click", fahrenheitClicked);
 //------------------------------------------------------------------------------------------------------------
 
+//function to get the forcast data from api and update the document from response-----------------------------
+function callForcastApi(coordinates) {
+  let apiKey = "bb0df6985c2eab6a171d64a6bacbb4e1";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude=current,minutely,hourly,alerts&appid=${apiKey}&units=metric`;
+}
+
 //function to get the weather data from api and update the document from response----------------
 function callWatherApi(apiUrl) {
   axios.get(apiUrl).then(function (response) {
@@ -98,6 +104,8 @@ function callWatherApi(apiUrl) {
     } ${weatherDate.getHours()}:${weatherDate.getMinutes()}, ${
       month[weatherDate.getMonth()]
     } ${weatherDate.getDate()}`;
+
+    callForcastApi(response.data.coord);
   });
 }
 
